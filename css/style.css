@@ -1,0 +1,428 @@
+/* Reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define fonts */
+@font-face {
+    font-family: Lato-Regular;
+    src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url('../fonts/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: Lato-Light;
+    src: url('../fonts/Lato/Lato-Light.ttf');
+}
+
+@font-face {
+    font-family: Lato-Italic;
+    src: url('../fonts/Lato/Lato-Italic.ttf');
+}
+
+/* Define variables */
+:root {
+    --primary-color: #444;
+    --secondary-color: #fff;
+    --third-color: #1bbc9b;
+    /* cuộn trang sẽ chạy mượt */
+    scroll-behavior: smooth;
+}
+
+/* Inherit - kế thừa */
+body {
+    font-family: Lato-Regular;
+    color: var(--primary-color);
+}
+
+/* Common - dùng chung */
+button {
+    font-size: 13px;
+    font-family: Lato-Bold;
+    color: var(--secondary-color);
+    /* bỏ border mặc định của button */
+    border: none;
+    background-color: var(--third-color);
+    /* mặc định chữ nằm giữa button theo chiều dọc */
+    height: 37px;
+    padding-left: 14px;
+    padding-right: 14px;
+    letter-spacing: 3px;
+}
+
+/* HEADER */
+/* MENU */
+.navbar-light .navbar-nav .nav-link {
+    /* #4499AA => #49A */
+    color: var(--primary-color);
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 7px;
+}
+
+/* xóa margin-left của thẻ a nằm trong li đầu tiên */
+.navbar-light .navbar-nav li:first-child .nav-link {
+    margin-left: 0;
+}
+
+.navbar-light .navbar-nav .active .nav-link,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--secondary-color);
+    background-color: var(--third-color);
+}
+
+.navbar {
+    padding-top: 19px;
+    padding-bottom: 19px;
+}
+
+/* MAIN */
+/* HOME */
+.home {
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 71px;
+    padding-bottom: 82px;
+    color: var(--secondary-color);
+}
+
+.home h1 {
+    font-size: 55px;
+    font-family: Lato-Light;
+    margin-bottom: 30px;
+}
+
+.home h1 span {
+    font-family: Lato-Bold;
+}
+
+.home p {
+    font-size: 18px;
+    font-family: Lato-Light;
+    max-width: 576px;
+    margin: auto;
+    margin-bottom: 45px;
+}
+
+.home button {
+
+    margin-bottom: 42px;
+
+}
+
+/* PORTFOLIO */
+.portfolio {
+    padding-top: 51px;
+    /* 61px - 34px (img) = 27px */
+    padding-bottom: 27px;
+}
+
+.portfolio h2 {
+    font-size: 28px;
+    margin-bottom: 11px;
+}
+
+.portfolio p {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.portfolio button {
+    margin-bottom: 45px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.portfolio>.row {
+    max-width: 960px;
+    /* nằm giữa so với cha là .portfolio */
+    margin: auto;
+}
+
+.portfolio .box {
+    position: relative;
+
+    margin-bottom: 34px;
+    /* cho .box bằng với nội dung bên trong (là cái hình) */
+    display: inline-block;
+}
+
+.portfolio .box .overlay {
+    position: absolute;
+    background-image: url('../images/hover.png');
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* phải có display flex để có thể làm center ngang dọc  */
+    display: flex;
+    /* center theo chiều dọc */
+    align-items: center;
+    /* center theo chiều ngang */
+    justify-content: center;
+    pointer-events: none;
+
+    /* scale là phóng to, thu nhỏ */
+    /* thu nhỏ về zero */
+    transform: scale(0);
+    /* ease là kiểu chạy: chậm -> nhanh -> chậm */
+    transition: .3s ease;
+}
+
+.portfolio .box:hover .overlay {
+    /* trở về kích thước ban đầu */
+    transform: scale(1);
+}
+
+.portfolio .box .overlay .content {
+    color: var(--secondary-color);
+}
+
+.portfolio .box .overlay .content span:nth-of-type(1) {
+    /* để set width/height */
+    display: inline-block;
+    width: 43px;
+    line-height: 45px;
+    border-radius: 50%;
+    background-image: url('../images/search.png');
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.portfolio .box .overlay .content span:nth-of-type(2) {
+    font-size: 18px;
+    /* chuyển lên inline-block để dùng margin-bottom */
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.portfolio .box .overlay .content span:nth-of-type(3) {
+    font-size: 14px;
+}
+
+/* ABOUT */
+.about {
+    padding-top: 54px;
+    padding-bottom: 74px;
+    background-color: #16a086;
+}
+
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: var(--secondary-color);
+}
+
+.about>p {
+    font-size: 14px;
+    margin-bottom: 42px;
+    color: var(--secondary-color);
+}
+
+.about .box-info {
+    background-color: var(--secondary-color);
+    width: 220px;
+    /* để box-info nằm giữa so với cột (col-lg-4) */
+    margin: auto;
+    padding-top: 18px;
+    padding-bottom: 19px;
+}
+
+.about .box-info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.about .box-info span {
+    font-size: 14px;
+    font-family: Lato-Italic;
+    margin-bottom: 18px;
+    /* span thuộc nhóm inline không chỉ định được margin-bottom */
+    /* inline-block chỉ định được margin-bottom */
+    display: inline-block;
+}
+
+.about .box-info p {
+    font-size: 14px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.about>.row {
+    max-width: 800px;
+    /* nằm giữa so với cha là .about */
+    margin: auto;
+}
+
+.about .box {
+    position: relative;
+}
+
+.about .box .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 48px;
+    background-image: url('../images/hover.png');
+    /* các con nằm giữa 2 chiều so với .overlay */
+    display: flex;
+    align-items: center;
+    /* giản đều theo chiều ngang */
+    justify-content: space-evenly;
+
+    /* hiệu ứng */
+    opacity: 0;
+    transition: .3 ease;
+}
+
+.about .box:hover .overlay {
+    opacity: 1;
+}
+
+.about .box .overlay a {
+    font-size: 29px;
+    color: var(--secondary-color);
+}
+
+/* CONTACT */
+.contact {
+    padding-top: 49px;
+    padding-bottom: 60px;
+    background-color: #ecf0f1;
+}
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 11px;
+}
+
+.contact>p {
+    font-size: 14px;
+    margin-bottom: 51px;
+}
+
+.contact input,
+.contact textarea {
+    border: 2px solid #bec3c7;
+    margin-bottom: 22px;
+    border-radius: 0;
+}
+
+.contact input {
+    height: 47px;
+}
+
+.contact textarea {
+    height: 153px;
+}
+
+.contact ::placeholder {
+    font-size: 14px;
+    font-family: Lato-Italic;
+    color: #999;
+}
+
+.contact button {
+    padding-left: 29px;
+    padding-right: 29px;
+}
+
+/* bên phải */
+/* bao gồm: h3 + address + 3 thẻ p */
+.contact .col-right>* {
+    font-size: 14px;
+}
+
+.contact .col-right h3 {
+    margin-bottom: 20px;
+}
+
+.contact .col-right address {
+    margin-bottom: 24px;
+}
+
+.contact .col-right p {
+    margin-bottom: 17px;
+}
+
+.contact>.row {
+    max-width: 970px;
+    margin: auto;
+}
+
+/* FOOTER */
+footer {
+    padding-top: 37px;
+    padding-bottom: 37px;
+    background-color: #2d3e50;
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+footer a.back-to-top {
+    position: fixed;
+    right: 42px;
+    bottom: 20px;
+    color: var(--secondary-color);
+    width: 44px;
+    /* chữ nằm giữa dòng */
+    line-height: 44px;
+    background-color: var(--third-color);
+    text-align: center;
+    font-size: 20px;
+}
+
+footer>.container-fluid {
+    max-width: 970px;
+    margin: auto;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        background-color: rgba(208, 208, 208, 0.8);
+        width: 100%;
+        left: 0;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+
+    /* bỏ margin-bottom của thẻ a nằm trong li cuối cùng */
+    .navbar-light .navbar-nav li:last-child .nav-link {
+        margin-bottom: 0;
+    }
+
+    .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.portfolio button.active {
+    background-color: yellow;
+    color: red;
+}
+
+label.error {
+    color: red;
+    font-size: 14px;
+    position: relative;
+    top: -20px;
+}
